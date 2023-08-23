@@ -7,7 +7,7 @@
 4. (추가) git submodule 환경에서 동작 과정 실습
 
 ## TODO
-1. AWS 계정 새로 생성(Free tier 기간 만료)
+1. ~~AWS 계정 새로 생성(Free tier 기간 만료)~~
 2. CodeDeploy 관련 학습
 3. CD 과정 진행
    - EC2, S3, CodeDeploy 설정

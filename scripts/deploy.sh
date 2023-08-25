@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
-REPOSITORY=/home/ubuntu/code
+REPOSITORY=/home/ec2-user/code
 PROJECT_NAME=spring-cicd
 JAR_NAME=$(ls -tr $REPOSITORY/ | grep 'SNAPSHOT.jar' | tail -n 1)
 JAR_PATH=$REPOSITORY/build/libs/$JAR_NAME
 
 cd $REPOSITORY
 
-CURRENT_PID=$(pgrep -f $PROJECT_NAME.*.jar)
+CURRENT_PID=$(pgrep -f $PROJECT_NAME)
 
 if [ -z $CURRENT_PID ]
 then

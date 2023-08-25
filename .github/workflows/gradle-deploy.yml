@@ -52,7 +52,7 @@ jobs:
 
     - name: Deploy to EC2 Instance
       run: |
-        aws deploy create-deployment --application-name Deploy-Server
-        --deployment-config-name CodeDeployDefault.OneAtATime
-        --deployment-group-name Deploy-Group
+        aws deploy create-deployment --application-name Deploy-Server \
+        --deployment-config-name CodeDeployDefault.OneAtATime \
+        --deployment-group-name Deploy-Group \
         --s3-location bucket=cicd-jar,bundleType=zip,key=$GITHUB_SHA.zip

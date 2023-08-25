@@ -5,6 +5,9 @@ PROJECT_NAME=spring-cicd
 JAR_NAME=$(ls -tr $REPOSITORY/ | grep 'SNAPSHOT.jar' | tail -n 1)
 JAR_PATH=$REPOSITORY/build/libs/$JAR_NAME
 
+echo JAR_NAME
+echo JAR_PATH
+
 cd $REPOSITORY
 
 CURRENT_PID=$(pgrep -f $PROJECT_NAME)

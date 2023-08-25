@@ -9,7 +9,7 @@ cd $REPOSITORY
 
 CURRENT_PID=$(pgrep -f $PROJECT_NAME.*.jar)
 
-if [ -z ""$CURRENT_PID ]
+if [ -z $CURRENT_PID ]
 then
   echo "> 종료할 애플리케이션이 없습니다"
 else

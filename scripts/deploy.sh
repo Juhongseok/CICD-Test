@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 
-REPOSITORY=/home/ec2-user/code
 PROJECT_NAME=spring-cicd
-JAR_NAME=$(ls -tr $REPOSITORY/ | grep 'SNAPSHOT.jar' | tail -n 1)
-JAR_PATH=$REPOSITORY/build/libs/$JAR_NAME
+REPOSITORY=/home/ec2-user/code
+PACKAGE=$REPOSITORY/build/libs/
+JAR_NAME=$(ls -tr $PACKAGE | grep 'SNAPSHOT.jar' | tail -n 1)
+JAR_PATH=$PACKAGE/$JAR_NAME
 
 echo $JAR_NAME
 echo $JAR_PATH

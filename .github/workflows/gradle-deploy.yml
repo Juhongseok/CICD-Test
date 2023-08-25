@@ -51,7 +51,8 @@ jobs:
       run: aws s3 cp --region ap-northeast-2 ./$GITHUB_SHA.zip s3://cicd-jar/$GITHUB_SHA.zip
 
     - name: Deploy to EC2 Instance
-      run: aws deploy create-deployment --application-name Deploy-Server \
-        --deployment-config-name CodeDeployDefault.OneAtATime \
-        --deployment-grou-name Deploy-Group \
+      run: |
+        aws deploy create-deployment --application-name Deploy-Server
+        --deployment-config-name CodeDeployDefault.OneAtATime
+        --deployment-group-name Deploy-Group
         --s3-location bucket=cicd-jar,bundleType=zip,key=$GITHUB_SHA.zip

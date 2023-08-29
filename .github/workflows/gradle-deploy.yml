@@ -21,7 +21,7 @@ jobs:
 
     steps:
     - name: Check Repo code With Submodules
-    - uses: actions/checkout@v3
+      uses: actions/checkout@v3
       with:
         submodules: 'true'
         token: ${{secrets.GH_ACCESS_TOKEN}}

@@ -15,6 +15,7 @@
       - ~~S3에 등록까지는 성공~~
       - ~~CodeDeploy에 배포 요청 보내기~~
    - ~~appspec.yml, deploy.sh 파일 생성~~
+4. submodule 포함한 CD 과정 진행
   
 ## CodeDeploy 학습 내용
 > **Amazon EC2 인스턴스, 온프레미스 인스턴스, 서버리스 Lambda 함수, Amazon ECS 서비스로 애플리케이션 배포를 자동화하는 배포 서비스**
@@ -85,4 +86,15 @@ App + AppSpec(yml 형식) 파일로 구성해서 배포
   
 4. nohup: failed to run command 'java' 
     - java download
-    
+
+### 진행과정 4
+**submodule 내부 파일 복사 안되는 문제**
+1. actions/checkout@v3에서 submodule 에 대한 속성 값을 설정해주어야 서브 모듈까지 checkout 할 수 있음
+2. submodule repo가 private일 경우 해당 repo에 접근 가능한 사람의 token을 필요로 함
+```yml
+- name: Check Repo code With Submodules
+  uses: actions/checkout@v3
+  with:
+     submodules: 'true'
+     token: ${{secrets.GH_ACCESS_TOKEN}}
+```

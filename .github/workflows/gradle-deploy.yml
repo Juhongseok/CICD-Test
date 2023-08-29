@@ -26,6 +26,8 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
+        submodules: 'true'
+        token: ${{secrets.GH_ACCESS_TOKEN}}
 
     - name: Permission for gradlew
       run: chmod +x ./gradlew

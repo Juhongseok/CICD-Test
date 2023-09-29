@@ -15,36 +15,27 @@ permissions:
   contents: read
 
 jobs:
-
-	java:
-
-		runs-on: ubuntu-latest
-
-		steps:
-		- name: Set up JDK 17
-			uses: actions/setup-java@v3
-		  with:
-		    java-version: '17'
-		    distribution: 'temurin'
-
-	setup:
-
-		runs-on: ubuntu-latest
-		
-		steps:
-		- name: Get Code From Github Repo HEAD
-			uses: actions/checkout@v3
-		- name: Grant execute permission for gradlew
-		  run: chmod +x ./gradlew
-		  shell: bash
-
-	test:
-		
-		needs: [java, setup]
-		runs-on: ubuntu-latest
-	
-		steps:
-		- name: Test with Gradle
-		  uses: gradle/gradle-build-action@bd5760595778326ba7f1441bcf7e88b49de61a25 # v2.6.0
-		  with:
-		    arguments: test
+  java:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Set up JDK 17
+      uses: actions/setup-java@v3
+      with:
+        java-version: '17'
+        distribution: 'termurin'
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Get Code From Github Repo HEAD
+      uses: actions/checkout@v3
+    - name: Grant execute permission for gradlew
+      run: chmod +x ./gradlew
+      shell: bash
+  test:
+    needs: [java, setup]
+    runs-on: ubuntu-latest
+    steps:
+    - name: Test with Gradle
+      uses: gradle/gradle-build-action@bd5760595778326ba7f1441bcf7e88b49de61a25 # v2.6.0
+      with:
+        arguments: test
